@@ -14,8 +14,11 @@ namespace PersonalDataConsole
                 //var ModelData = objdatbase.DynamicDataModel(); //getting dynamic data for model and store in madel data variablr
                 //objdatbase.InsertPersonalData(ModelData);
                 //objdatbase.Select();
+               /* Console.WriteLine("Enter id to select");
+                int selid = Convert.ToInt32(Console.ReadLine());*/
+                objdatbase.Selectwithid(5);
                 //objdatbase.ubdate(ModelData);
-                objdatbase.delete();
+               // objdatbase.delete();
             }
 
             catch (NullReferenceException e)

@@ -98,6 +98,44 @@ namespace PersonalDataConsole.Repository
             }
 
         }
+
+
+        public List<PersonalDataModel> Selectwithid(int id)
+
+        {
+            try
+            {
+                List<PersonalDataModel> ListofPersonalData = new List<PersonalDataModel>();
+
+                SqlConnection con = new SqlConnection(connectionString);
+
+                var connection = new SqlConnection(connectionString);
+                connection.Open();
+                ListofPersonalData = connection.Query<PersonalDataModel>("exec SelectPersonalBioWithid {id}", connectionString).ToList();
+                connection.Close();
+
+
+                foreach (var LoopListOfData in ListofPersonalData)
+                {
+
+                    Console.WriteLine($" id---{LoopListOfData.id }   Name--{LoopListOfData.Name}   lastName--{LoopListOfData.LastName}   age--{LoopListOfData.Age}   email--{LoopListOfData.Address} ");
+                    Console.WriteLine("-------------------------------------------------------------------------------");
+                }
+
+
+                return ListofPersonalData;
+
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+        }
+
+
         public void ubdate(PersonalDataModel bio)
         {
             try
